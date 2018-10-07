@@ -1,6 +1,7 @@
 package _01_IntroToArrayLists;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 import javax.swing.JOptionPane;
@@ -12,11 +13,16 @@ public class _05_LongChipCompetition {
 	 * the longest chip. You may not edit the Chip or Beatle classes. Make sure to
 	 * initialize The Beatles before you start your search. *
 	 **/
-	private ArrayList<Beatle> theBeatles = new ArrayList<Beatle>();
+	private static ArrayList<Beatle> theBeatles = new ArrayList<Beatle>();
 
 	public static void main(String[] args) {
-		_05_LongChipCompetition lcc = new _05_LongChipCompetition();
 		
+		_05_LongChipCompetition lcc = new _05_LongChipCompetition();
+		lcc.initializeBeatles();
+		for (Beatle b : theBeatles) {
+			System.out.println(b.getChips());
+		}
+			
 	}
 	
 	private void initializeBeatles() {
@@ -51,7 +57,7 @@ class Beatle {
 		}
 	}
 
-	public ArrayList<Chip> getChips() {
+	public  ArrayList<Chip> getChips() {
 		return this.chips;
 	}
 
