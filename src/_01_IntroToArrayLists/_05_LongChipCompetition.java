@@ -19,9 +19,13 @@ public class _05_LongChipCompetition {
 		
 		_05_LongChipCompetition lcc = new _05_LongChipCompetition();
 		lcc.initializeBeatles();
-		for (Beatle b : theBeatles) {
-			System.out.println(b.getChips());
+		for(Beatle b: theBeatles) {
+			for(Chip c: b.getChips()) {
+				 System.out.println(c.getLength());
+				System.out.println(b.getName());
+			}
 		}
+		
 			
 	}
 	
