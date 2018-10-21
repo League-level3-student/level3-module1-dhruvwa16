@@ -14,20 +14,37 @@ public class _05_LongChipCompetition {
 	 * initialize The Beatles before you start your search. *
 	 **/
 	private static ArrayList<Beatle> theBeatles = new ArrayList<Beatle>();
-
+	 private static ArrayList<Double> length = new ArrayList<Double>();
 	public static void main(String[] args) {
 		
 		_05_LongChipCompetition lcc = new _05_LongChipCompetition();
 		lcc.initializeBeatles();
+
 		for(Beatle b: theBeatles) {
 			for(Chip c: b.getChips()) {
-				 System.out.println(c.getLength());
-				System.out.println(b.getName());
+				length.add(c.getLength());
+			}
+			
+	}	
+		Double d = length.get(0);
+		for (int i = 1; i < length.size(); i++) {
+			if(length.get(i) > d) {
+				d = length.get(i);
+			}
+			else {
+				
+			}
+			
+		}
+		for(Beatle b: theBeatles) {
+			for(Chip c: b.getChips()) {
+				if(c.getLength() == d) {
+					System.out.println(b.getName());
+				}
 			}
 		}
-		
-			
 	}
+	
 	
 	private void initializeBeatles() {
 		Beatle george = new Beatle("George");
