@@ -15,8 +15,6 @@ import javax.swing.JPanel;
 public class _06_IPodShuffle {
 	public _06_IPodShuffle() {
 		// 1. Use the Song class the play the demo.mp3 file.
-	Song lcc = new Song("demo.mp3");  
-	lcc.setDuration(1);
 	 ArrayList<Song> songs = new ArrayList<Song>();
 	 JFrame frame = new JFrame();
 	 JPanel panel = new JPanel();
@@ -25,7 +23,10 @@ public class _06_IPodShuffle {
 	panel.add(button);
 	button.setText("Surprise Me");
 	frame.setVisible(true);
-	
+	Song lcc = new Song("demo.mp3");
+	lcc.setDuration(20);
+	lcc.play();
+	}
 
 		/**
 		 * 2. Congratulations on completing the sound check! * Now we want to make an
@@ -35,12 +36,16 @@ public class _06_IPodShuffle {
 		 * subsequent button clicks.
 		 */
 		
-	}
+	
 
 
 	public static void main(String[] args) {
 		 new _06_IPodShuffle();
 	}
+
+
+	
+
 
 
 

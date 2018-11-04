@@ -34,4 +34,4 @@ class IntegerStackTest {
 		assertEquals(0, is.size());
 	}
 
-}
+	}
