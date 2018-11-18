@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-public class HangMan extends Utilities{
+public class HangMan {
 	JLabel label;
 	JPanel panel;
 	JFrame frame;
@@ -23,18 +23,29 @@ public class HangMan extends Utilities{
 		words = new Stack<String>();
 		int z = Integer.parseInt(a);
 		for (int i = 0; i < z; i++) {
-			String word = readRandomLineFromFile("dictionary.txt");
+			String word = Utilities.readRandomLineFromFile("src/_04_HangMan/dictionary.txt");
 			if(words.contains(word)) {
-				
+				i = words.size();
 			}
 			else {
 			words.push(word);
 			}           
 		}
+		int lives = 10;
+		String b = words.pop();
+		System.out.println(b);
+		int length = b.length();
+		label.setText("-");
+		for (int i = 0; i < length -1 ; i++) {
+			label.setText(label.getText()+"-");	
+		}
+		label.setText(label.getText()+"Lives Remaining:"+ lives);	
+		frame.pack();
 	}
 	
 	public static void main(String[] args) {
 		 new HangMan();
+		
 	}
 
 	
