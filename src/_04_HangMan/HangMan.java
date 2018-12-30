@@ -50,7 +50,7 @@ public class HangMan implements KeyListener{
 		}
 		 lives = 10;
 		 b = words.pop();
-		 System.out.println(b);
+		
 		length = b.length();
 		ints = new Integer[length];
 		for (int i = 0; i < ints.length; i++) {
@@ -95,16 +95,84 @@ public class HangMan implements KeyListener{
 		frame.pack();
 		if(lives == 0){
 			JOptionPane.showMessageDialog(null, "You ran out of lives. The word was " + b);
-			JOptionPane.showInputDialog("Do you want to play again");
+			String answer = JOptionPane.showInputDialog("Do you want to play again (1:yes, 0:no)");
+			int answer4 = Integer.parseInt(answer);
+			if(answer4 == 1) {
+				String a = JOptionPane.showInputDialog("How many words would like to guess?");
+				words = new Stack<String>();
+				int z = Integer.parseInt(a);
+				for (int i = 0; i < z; i++) {
+					String word = Utilities.readRandomLineFromFile("src/_04_HangMan/dictionary.txt");
+					if(words.contains(word)) {
+						i = words.size();
+					}
+					else {
+					words.push(word);
+					}           
+				wordsleft = Integer.parseInt(a);
+				 b = words.pop();	 
+				length = b.length();
+				ints = new Integer[length];
+				for (int j = 0; j< ints.length; j++) {
+					ints[i] = 0;
+				}
+				label.setText("_");
+				for (int k = 0; k < length -1 ; k++) {
+						label.setText(label.getText()+"_");	
+				}
+				label.setText(label.getText() + "Lives Remaiming" + lives);
+				frame.pack();
+				ints = new Integer[length];
+				for (int l = 0; l < ints.length; l++) {
+					ints[l] = 0;
+				}
+				lives=10;
+			}
+			}
 		}
 		if(k == 0){
 			JOptionPane.showMessageDialog(null, "Good Job");
 			wordsleft--;
 			if(wordsleft == 0){
-				JOptionPane.showInputDialog("Do you want to play again");
+			String answer2 = JOptionPane.showInputDialog("Do you want to play again (1:yes, 0:no)");
+			int answer3 = Integer.parseInt(answer2);
+			if(answer3 == 1) {
+				String a = JOptionPane.showInputDialog("How many words would like to guess?");
+				words = new Stack<String>();
+				int z = Integer.parseInt(a);
+				for (int i = 0; i < z; i++) {
+					String word = Utilities.readRandomLineFromFile("src/_04_HangMan/dictionary.txt");
+					if(words.contains(word)) {
+						i = words.size();
+					}
+					else {
+					words.push(word);
+					}           
+				
+				wordsleft = Integer.parseInt(a);
+				 b = words.pop();
+			
+				length = b.length();
+				ints = new Integer[length];
+				for (int j = 0; j < ints.length; j++) {
+					ints[i] = 0;
+				}
+				label.setText("_");
+				for (int k = 0; k < length -1 ; k++) {
+						label.setText(label.getText()+"_");	
+				}
+				label.setText(label.getText() + "Lives Remaiming" + lives);
+				frame.pack();
+				ints = new Integer[length];
+				for (int l = 0; l < ints.length; l++) {
+					ints[l] = 0;
+				}
+				}
+			}
 			}	
 			else{
 			 b = words.pop();
+			 
 			length = b.length();
 			ints = new Integer[length];
 			for (int i = 0; i < ints.length; i++) {
@@ -117,8 +185,8 @@ public class HangMan implements KeyListener{
 			label.setText(label.getText() + "Lives Remaiming" + lives);
 			frame.pack();
 			}
+		
 		}
-	
 	}
 	
 	@Override
